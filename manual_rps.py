@@ -3,7 +3,7 @@ import random
 def get_computer_choice():
     OPTIONS = ["Rock", "Paper", "Scissors"]
     computer_choice = random.choice(OPTIONS)
-    return computer_choice # This gives the computer option
+    return computer_choice 
 
 def get_user_choice():
     user_choice = input("Enter rock, paper or scissors: ").capitalize()

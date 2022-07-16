@@ -6,6 +6,7 @@ model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
+
 while True: 
     ret, frame = cap.read()
     resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
@@ -16,7 +17,6 @@ while True:
     cv2.imshow('frame', frame)
     # Press q to close the window
     print(prediction)
-    time.sleep(10)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
