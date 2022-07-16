@@ -16,7 +16,7 @@ while True:
     cv2.imshow('frame', frame)
     # Press q to close the window
     print(prediction)
-    print(time.time())
+    time.sleep(10)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
