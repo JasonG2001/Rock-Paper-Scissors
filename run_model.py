@@ -1,4 +1,5 @@
 import cv2
+import time
 from keras.models import load_model
 import numpy as np
 model = load_model('keras_model.h5')
@@ -15,10 +16,10 @@ while True:
     cv2.imshow('frame', frame)
     # Press q to close the window
     print(prediction)
-    print(type(prediction))
+    print(time.time())
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-            
+
 # After the loop release the cap object
 cap.release()
 # Destroy all the windows
