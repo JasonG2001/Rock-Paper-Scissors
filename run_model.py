@@ -17,7 +17,8 @@ def run_model():
         data[0] = normalized_image
         prediction = model.predict(data)
         cv2.imshow('frame', frame)
-        return options[prediction.argmax()]
+        computer_choice = options[prediction.argmax()]
+        print(computer_choice)
         # Press q to close the window
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
