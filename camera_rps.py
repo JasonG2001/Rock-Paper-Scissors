@@ -1,7 +1,8 @@
 import time
+import run_model
 
 def get_prediction():
-    import run_model
+    run_model()    
 
 get_prediction()
 
