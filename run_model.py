@@ -3,11 +3,12 @@ import time
 from keras.models import load_model
 import numpy as np
 
-def run_model():
-    model = load_model('keras_model.h5')
-    cap = cv2.VideoCapture(0)
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
+model = load_model('keras_model.h5')
+cap = cv2.VideoCapture(0)
+data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+
+def run():    
     while True: 
         options = ["Rock", "Paper", "Scissors", "Nothing"] 
         ret, frame = cap.read()
@@ -17,8 +18,8 @@ def run_model():
         data[0] = normalized_image
         prediction = model.predict(data)
         cv2.imshow('frame', frame)
-        computer_choice = options[prediction.argmax()]
-        print(computer_choice)
+        user_selection = options[prediction.argmax()]
+        print(user_selection)
         # Press q to close the window
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -28,6 +29,9 @@ def run_model():
     # Destroy all the windows
     cv2.destroyAllWindows()
 
-run_model()
+    return print(user_selection)
+
+
+
 
 
