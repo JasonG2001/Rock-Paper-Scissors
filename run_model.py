@@ -31,11 +31,10 @@ def run():
     cap.release()
     # Destroy all the windows
     cv2.destroyAllWindows()
-    print(user_selection)
     return user_selection
 
-
-
+if __name__ == "__main__":
+    run()
 
 
 
