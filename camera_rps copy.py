@@ -10,7 +10,7 @@ def final_winner(computer_wins, user_wins):
         def get_computer_choice():
             OPTIONS = ["Rock", "Paper", "Scissors"]
             computer_choice = random.choice(OPTIONS)
-            print(f"Computer plays {computer_choice}")
+            print(f"computer plays {computer_choice}")
             return computer_choice 
 
         def get_prediction():
