@@ -1,26 +1,37 @@
 import run_model
 import random
 
-def get_computer_choice():
-    OPTIONS = ["Rock", "Paper", "Scissors"]
-    computer_choice = random.choice(OPTIONS)
-    return computer_choice 
+computer_wins = 0
+user_wins = 0
 
-def get_prediction():
-    return run_model.run() 
+while computer_wins < 3 and user_wins < 3:
 
-def get_winner(prediction, computer_choice):
-    if prediction == computer_choice:
-        return "draw"
-    elif (prediction == "Rock" and computer_choice == "Scissors") or (prediction == "Scissors" and computer_choice == "Paper") or (prediction == "Paper" and computer_choice == "Rock"):
-        return "user"
-    else:
-        return "computer"
+    def get_computer_choice():
+        OPTIONS = ["Rock", "Paper", "Scissors"]
+        computer_choice = random.choice(OPTIONS)
+        return computer_choice 
 
-def play():
-    prediction = get_prediction()
-    computer_choice = get_computer_choice()
-    print(get_winner(prediction, computer_choice))
+    def get_prediction():
+        return run_model.run() 
 
-if __name__ == "__main__":
+    def get_winner(prediction, computer_choice):
+        if prediction == computer_choice:
+            print("draw")
+            return "draw"
+        elif (prediction == "Rock" and computer_choice == "Scissors") or (prediction == "Scissors" and computer_choice == "Paper") or (prediction == "Paper" and computer_choice == "Rock"):
+            user_wins += 1
+            print("you win")
+            return "user"
+        else:
+            computer_wins += 1
+            print("computer wins")
+            return "computer"
+
+
+    def play():
+        prediction = get_prediction()
+        computer_choice = get_computer_choice()
+        get_winner(prediction, computer_choice)
+
+
     play()

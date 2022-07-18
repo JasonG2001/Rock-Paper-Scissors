@@ -9,7 +9,7 @@ def run():
     cap = cv2.VideoCapture(0)
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     start_time = time.time()
-    TIME_LIMIT = 10
+    TIME_LIMIT = 3
     options = ["Rock", "Paper", "Scissors", "Nothing"]
     while time.time() < start_time + TIME_LIMIT: 
         countdown = int((start_time + TIME_LIMIT)) - int(time.time())
