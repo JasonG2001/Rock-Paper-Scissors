@@ -1,45 +1,45 @@
 import run_model
 import random
 
-computer_wins = 0
-user_wins = 0
+def get_computer_choice():
+    OPTIONS = ["Rock", "Paper", "Scissors"]
+    computer_choice = random.choice(OPTIONS)
+    print(f"Computer plays {computer_choice}")
+    return computer_choice 
 
-def final_winner(computer_wins, user_wins):
-    while computer_wins < 3 and user_wins < 3:
+def get_prediction():
+    user_outcome = run_model.run()
+    print(f"You play {user_outcome}")
+    return user_outcome 
 
-        def get_computer_choice():
-            OPTIONS = ["Rock", "Paper", "Scissors"]
-            computer_choice = random.choice(OPTIONS)
-            print(f"computer plays {computer_choice}")
-            return computer_choice 
-
-        def get_prediction():
-            print(f"You play {run_model.run()}")
-            return run_model.run() 
-
-        def get_winner(prediction, computer_choice):
-            if prediction == computer_choice:
-                print("draw")
-                return "draw"
-            elif (prediction == "Rock" and computer_choice == "Scissors") or (prediction == "Scissors" and computer_choice == "Paper") or (prediction == "Paper" and computer_choice == "Rock"):
-                print("you win")
-                return "user"
-            else:
-                print("computer wins")
-                return "computer"
-
-
-        def play():
-            prediction = get_prediction()
-            computer_choice = get_computer_choice()
-            get_winner(prediction, computer_choice)
-
-        if __name__ == "__main__":
-            play()
-
-    if computer_wins > user_wins:
-        print("computer wins overall")
+def get_winner(prediction, computer_choice):
+    if prediction == computer_choice:
+        print("draw")
+        return "draw"
+    elif (prediction == "Rock" and computer_choice == "Scissors") or (prediction == "Scissors" and computer_choice == "Paper") or (prediction == "Paper" and computer_choice == "Rock"):
+        print("you win")
+        return "user"
     else:
-        print("user wins overall")
+        print("computer wins")
+        return "computer"
 
-final_winner(computer_wins, user_wins)
+def play():
+    NUMBER_TO_WIN = 3
+    computer_wins = 0
+    user_wins = 0
+    while computer_wins < NUMBER_TO_WIN and user_wins < NUMBER_TO_WIN:
+        prediction = get_prediction()
+        computer_choice = get_computer_choice()
+        winner = get_winner(prediction, computer_choice)
+        if winner == "user":
+            user_wins += 1
+        elif winner == "computer":
+            computer_wins += 1
+    if computer_wins == NUMBER_TO_WIN:
+        print("You lose")
+    else:
+        print("You win")
+
+if __name__ == "__main__":
+    play()
+
