@@ -10,9 +10,11 @@ def final_winner(computer_wins, user_wins):
         def get_computer_choice():
             OPTIONS = ["Rock", "Paper", "Scissors"]
             computer_choice = random.choice(OPTIONS)
+            print(f"Computer plays {computer_choice}")
             return computer_choice 
 
         def get_prediction():
+            print(f"You play {run_model.run()}")
             return run_model.run() 
 
         def get_winner(prediction, computer_choice):
