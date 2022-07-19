@@ -17,10 +17,10 @@ def get_winner(prediction, computer_choice):
         print("draw")
         return "draw"
     elif (prediction == "Rock" and computer_choice == "Scissors") or (prediction == "Scissors" and computer_choice == "Paper") or (prediction == "Paper" and computer_choice == "Rock"):
-        print("you win")
+        print("You win this round")
         return "user"
     else:
-        print("computer wins")
+        print("Computer wins this round")
         return "computer"
 
 def play():
@@ -35,10 +35,12 @@ def play():
             user_wins += 1
         elif winner == "computer":
             computer_wins += 1
+        print(f"Your points: {user_wins}")
+        print(f"Computer points: {computer_wins}")
     if computer_wins == NUMBER_TO_WIN:
-        print("You lose")
+        print("You lose :(")
     else:
-        print("You win")
+        print("You win :)")
 
 if __name__ == "__main__":
     play()
