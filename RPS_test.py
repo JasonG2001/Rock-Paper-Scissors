@@ -74,7 +74,7 @@ class RockPaperScissors:
         else:
 
             self.computer_wins += 1
-            print("Computer wins this round")
+            print("Computer wins this round") # Also if user selects nothing
 
         print(f"Your points: {self.user_wins}")
         print(f"Computer points: {self.computer_wins}")
